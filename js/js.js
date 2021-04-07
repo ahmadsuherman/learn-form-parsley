@@ -1,6 +1,5 @@
 $(document).ready(function(){  
  $('#form-parsley').parsley();
- 
  $('#validate_form').on('submit', function(event){
   event.preventDefault();
   if($('#validate_form').parsley().isValid())
@@ -24,17 +23,19 @@ $(document).ready(function(){
         icon: "success",
         timer: 1000
      });
+    },
+    error:function(data)
+    {
+      console.log("ahmad");
     }
+
    });
   }
  });
 });  
 
-$(document).ready(function() {
-  $('.btn-refresh').click(function(e) {
-    e.preventDefault();
-    $('.preloader').fadeIn();
-    location.reload();
-  })
-
+$('.btn-refresh').click(function(e) {
+  e.preventDefault();
+  $('.preloader').fadeIn();
+  location.reload();
 })

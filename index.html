@@ -33,14 +33,20 @@
        <label for="email">Alamat email</label>
        <input type="text" name="email" id="email" placeholder="Masukan alamat email" data-parsley-required-message="Alamat email wajib di isi"  data-parsley-type-message="Alamat email tidak valid" required data-parsley-type="email" data-parsley-trigger="keyup" class="form-control" />
       </div>
+      <div class="row">
+      <div class="col-xs-6">
       <div class="form-group">
        <label for="password">Kata sandi</label>
        <input type="password" name="password" id="password" placeholder="Masukan kata sandi" data-parsley-required-message="Kata sandi wajib di isi" data-parsley-length-message="Panjang karakter minimal 8 maksimal 16 karakter" required data-parsley-length="[8, 16]" data-parsley-trigger="keyup" class="form-control" />
       </div>
+      </div>
+      <div class="col-xs-6">
       <div class="form-group">
        <label for="cpassword">Ulangi Sandi</label>
        <input type="password" name="confirm_password" id="confirm_password" data-parsley-required-message="Ulangi kata sandi wajib di isi" data-parsley-equalto-message="Nilai ulangi sandi harus sama dengan kata sandi"  placeholder="Masukan ulangi sandi"data-parsley-equalto="#password" data-parsley-trigger="keyup" required class="form-control" />
       </div>
+      </div>
+    </div>
       <div class="form-group">
        <label for="cpassword">Situs Web</label>
        <input type="text" id="website" name="website" placeholder="Masukan Situs Web URL" data-parsley-type-message="URL tidak valid" data-parsley-type="url" data-parsley-trigger="keyup" class="form-control" />
@@ -57,48 +63,6 @@
     </div>
    </div>  
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script>
-    $(document).ready(function(){  
-     $('#form-parsley').parsley();
-     $('#validate_form').on('submit', function(event){
-      event.preventDefault();
-      if($('#validate_form').parsley().isValid())
-      {
-       $.ajax({
-        url:"#",
-        method:"POST",
-        data:$(this).serialize(),
-        beforeSend:function(){
-         $('#submit').attr('disabled','disabled');
-         $('#submit').val('Proses...');
-        },
-        success:function(data)
-        {
-         $('#validate_form')[0].reset();
-         $('#validate_form').parsley().reset();
-         $('#submit').attr('disabled',false);
-         $('#submit').val('Submit');
-         swal("Data berhasil ditambahkan", {
-            button: false,
-            icon: "success",
-            timer: 1000
-         });
-        },
-        error:function(data)
-        {
-          console.log("ahmad");
-        }
-
-       });
-      }
-     });
-    });  
-
-    $('.btn-refresh').click(function(e) {
-      e.preventDefault();
-      $('.preloader').fadeIn();
-      location.reload();
-    })
-  </script>
+  <script src="https://learn-form-parsley.netlify.app/js/js.js"></script>
  </body> 
 </html>
